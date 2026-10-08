@@ -43,6 +43,13 @@ export default function App() {
   }, []);
 
   const renderPage = () => {
+    const actionMode = new URLSearchParams(window.location.search).get('mode');
+    // Firebase can use the same configured action URL for initial confirmation
+    // and verify-before-update-email. Both must reach the action-code handler.
+    if (actionMode === 'verifyEmail' || actionMode === 'verifyAndChangeEmail') {
+      return <EmailVerificationPage />;
+    }
+
     if (pathname === '/baixar' || page === 'baixar') {
       return <DownloadRedirectPage />;
     }

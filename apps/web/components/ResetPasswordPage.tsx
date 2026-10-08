@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import Footer from './Footer';
 
 type ResetState = 'loading' | 'input' | 'submitting' | 'success' | 'error';
@@ -108,7 +108,7 @@ export default function ResetPasswordPage() {
     run();
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setErrorMessage('');
     

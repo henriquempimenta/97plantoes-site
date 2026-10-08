@@ -25,6 +25,7 @@ export default function EmailVerificationPage() {
   const [state, setState] = useState<VerificationState>('loading');
   const [errorMessage, setErrorMessage] = useState('');
   const [continueUrl, setContinueUrl] = useState(DEFAULT_CONTINUE_URL);
+  const [isEmailChange, setIsEmailChange] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -42,11 +43,12 @@ export default function EmailVerificationPage() {
         document.documentElement.lang = lang.toLowerCase().startsWith('pt') ? 'pt-BR' : lang;
       }
 
-      if (mode !== 'verifyEmail') {
+      if (mode !== 'verifyEmail' && mode !== 'verifyAndChangeEmail') {
         setErrorMessage('Modo de ação inválido para esta página.');
         setState('error');
         return;
       }
+      setIsEmailChange(mode === 'verifyAndChangeEmail');
 
       if (!oobCode) {
         setErrorMessage('Código de verificação ausente.');
@@ -220,13 +222,17 @@ export default function EmailVerificationPage() {
                         </svg>
                       </div>
                       <h2 className="text-2xl font-bold text-gray-900 mb-3">
-                        Seu e-mail foi verificado.
+                        {isEmailChange ? 'Seu e-mail foi corrigido.' : 'Seu e-mail foi verificado.'}
                       </h2>
                       <p className="text-gray-600 leading-relaxed mb-2">
-                        Sua conta foi confirmada com sucesso.
+                        {isEmailChange
+                          ? 'O novo endereço foi confirmado. Sua conta e seu cadastro foram preservados.'
+                          : 'Seu endereço de e-mail foi confirmado com sucesso.'}
                       </p>
                       <p className="text-gray-600 leading-relaxed mb-6">
-                        Você já pode continuar o acesso ao aplicativo.
+                        {isEmailChange
+                          ? 'Volte ao aplicativo para continuar o cadastro. Se precisar entrar novamente, use o novo e-mail e a mesma senha.'
+                          : 'Volte ao aplicativo para concluir seu cadastro ou continuar o acesso.'}
                       </p>
                       <a
                         href="https://plantao-medico-wu1ab6.web.app/login"
