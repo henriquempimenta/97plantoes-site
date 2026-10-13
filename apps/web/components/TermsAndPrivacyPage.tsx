@@ -228,6 +228,44 @@ const termsSections: LegalSection[] = [
     ],
   },
   {
+    id: 'pagamento-a-prazo',
+    title: '7-A. Pagamento a Prazo pela Instituição',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: 'Gestores habilitados pelo 97plantões podem publicar plantões na modalidade Pagamento a prazo pela Instituição. A habilitação é concedida a critério do 97plantões e pode ser revogada a qualquer momento, sem afetar plantões já publicados.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Nessa modalidade, o pagamento é feito diretamente pela Instituição ao Profissional, fora da Plataforma. O 97plantões não recebe, não retém, não processa, não intermedeia e não garante esse pagamento, nem seu valor, prazo ou forma.',
+      },
+      {
+        type: 'paragraph',
+        text: 'A Plataforma não cobra taxa sobre plantões nessa modalidade. Essa condição pode ser alterada mediante aviso prévio, sem efeito retroativo sobre plantões já confirmados.',
+      },
+      {
+        type: 'paragraph',
+        text: 'O valor exibido é informado pelo Gestor. A Plataforma não informa prazo de pagamento. Cabe ao Profissional esclarecer as condições antes de se candidatar ou confirmar, inclusive pelo chat da Plataforma.',
+      },
+      {
+        type: 'paragraph',
+        text: 'O Gestor declara ter autorização da Instituição para publicar o plantão nessa modalidade e se responsabiliza pela exatidão das informações e pelo cumprimento do pagamento pela Instituição.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Questões fiscais, tributárias, trabalhistas e contratuais da relação entre Instituição e Profissional, como forma de contratação, retenções e emissão de documentos fiscais, são de responsabilidade exclusiva das partes.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Depois que o Profissional confirma o plantão, o cancelamento não pode ser feito pelo aplicativo e deve ser solicitado ao suporte do 97plantões, que registrará o pedido e avisará a outra parte.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Divergências sobre o pagamento devem ser resolvidas entre a Instituição e o Profissional. O 97plantões poderá fornecer às partes os registros disponíveis na Plataforma, como datas da escolha e da confirmação e mensagens trocadas, observada a legislação de proteção de dados, e poderá suspender a habilitação de Gestores envolvidos em reclamações.',
+      },
+    ],
+  },
+  {
     title: '8. Cancelamentos, Faltas e Medidas Internas',
     blocks: [
       {
