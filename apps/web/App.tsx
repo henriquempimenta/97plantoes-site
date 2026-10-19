@@ -1,4 +1,5 @@
 import { useEffect, useState, lazy, Suspense } from 'react';
+import { LogoLoader } from './components/site/Logo97';
 
 // Lazy loading das páginas para dividir o bundle (Code Splitting)
 const LandingPage = lazy(() => import('./components/LandingPage'));
@@ -24,7 +25,7 @@ const DelayedFallback = () => {
         show ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="w-10 h-10 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
+      <LogoLoader />
     </div>
   );
 };
@@ -74,7 +75,7 @@ export default function App() {
       return <TermsAndPrivacyPage />;
     }
 
-    return <LandingPage onGoToApp={() => { }} />;
+    return <LandingPage />;
   };
 
   // Suspense mostra o nosso loader com fade-in customizado

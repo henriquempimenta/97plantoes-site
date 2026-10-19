@@ -8,3 +8,4 @@ coverage/
 !.env.example
 noventa_sete_plantoes
 plantoes-functions
+.research/

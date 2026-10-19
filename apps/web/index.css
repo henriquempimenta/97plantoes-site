@@ -2,7 +2,39 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Paleta da logo 97 Plantões */
+  --color-ink: #0B2E4F;
+  --color-ink-soft: #52677D;
+  --color-mist: #F3F6F9;
+  --color-line: #DCE4EC;
+  --color-night: #071A2C;
+  --color-cyan: #62E8F8;
+  --color-sky: #3AAADF;
+  --color-ocean: #1761A6;
+  --color-cross: #E11F37;
+  --color-cross-light: #FF4F58;
+  --color-cross-deep: #B10621;
+
+  --ease-out-expo: cubic-bezier(.2, .8, .2, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-mist);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 /* Custom Utilities */
@@ -12,4 +44,96 @@
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(120deg, #3AAADF 0%, #1761A6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Animações da logo (CSS sobre o SVG inline) ── */
+.logo97 g { transform-box: fill-box; transform-origin: center; }
+
+/* Montagem: primeira dobra, toca uma vez (~1,6 s) */
+.logo97.v-montagem .n9 { animation: logo-entrada-9 .9s cubic-bezier(.2,.8,.2,1) both; }
+.logo97.v-montagem .n7 { animation: logo-entrada-7 .9s cubic-bezier(.2,.8,.2,1) both; }
+.logo97.v-montagem .cross { animation: logo-entrada-cruz .7s .55s cubic-bezier(.34,1.56,.64,1) both; }
+.logo97.v-montagem .ch { animation: logo-entrada-letra .5s calc(1s + var(--i) * 60ms) ease-out both; }
+@keyframes logo-entrada-9 { from { transform: translateX(-140px); opacity: 0; } }
+@keyframes logo-entrada-7 { from { transform: translateX(140px); opacity: 0; } }
+@keyframes logo-entrada-cruz { from { transform: scale(0) rotate(-90deg); } }
+@keyframes logo-entrada-letra { from { transform: translateY(40px); opacity: 0; } }
+
+/* Batimento: cruz pulsando, contínua */
+.logo97.v-batimento .cross { animation: logo-batida 1.3s ease-in-out infinite; }
+.logo97.v-batimento .ring { animation: logo-onda 1.3s ease-out infinite; }
+@keyframes logo-batida {
+  0%, 60%, 100% { transform: scale(1); }
+  15% { transform: scale(1.13); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.07); }
+}
+@keyframes logo-onda {
+  0% { transform: scale(1); opacity: .55; }
+  70%, 100% { transform: scale(1.55); opacity: 0; }
+}
+
+/* Traço: contorno desenhado, depois a cor (~2,3 s) */
+.logo97.v-traco .line {
+  fill: none; stroke-width: 5; stroke-linejoin: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+  animation: logo-traco-desenha 1.6s ease-in-out forwards, logo-traco-some .5s 1.8s forwards;
+}
+.logo97.v-traco .sym, .logo97.v-traco .cross { animation: logo-traco-cor .6s 1.4s ease both; }
+.logo97.v-traco .ch { animation: logo-traco-cor .4s calc(1.8s + var(--i) * 50ms) both; }
+@keyframes logo-traco-desenha { to { stroke-dashoffset: 0; } }
+@keyframes logo-traco-some { to { opacity: 0; } }
+@keyframes logo-traco-cor { from { opacity: 0; } }
+
+/* Brilho: reflexo atravessando o 97, contínua */
+.logo97.v-brilho .shine { animation: logo-brilho 3.2s ease-in-out infinite; }
+@keyframes logo-brilho {
+  0% { transform: translateX(0); }
+  45%, 100% { transform: translateX(1300px); }
+}
+
+/* Carregando: ECG sob o símbolo, contínua */
+.logo97.v-carregando .txt { display: none; }
+.logo97.v-carregando .cross { animation: logo-carrega-batida 1.6s ease-in-out infinite; }
+.logo97.v-carregando .ecg-base { fill: none; stroke: rgba(98,232,248,.18); stroke-width: 6; }
+.logo97.v-carregando .ecg {
+  fill: none; stroke: #62E8F8; stroke-width: 7;
+  stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: .28 1.1;
+  animation: logo-carrega-ecg 1.6s linear infinite;
+}
+@keyframes logo-carrega-ecg {
+  from { stroke-dashoffset: .28; }
+  to { stroke-dashoffset: -1; }
+}
+@keyframes logo-carrega-batida {
+  0%, 50%, 100% { transform: scale(1); }
+  20% { transform: scale(1.08); }
+  32% { transform: scale(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo97 *, .logo97 { animation: none !important; transition: none !important; }
+  .logo97 .line, .logo97 .shine, .logo97 .ring, .logo97 .ecg { display: none; }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
 }

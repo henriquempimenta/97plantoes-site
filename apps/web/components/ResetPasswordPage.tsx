@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react';
+import SiteHeader from './site/SiteHeader';
 import Footer from './Footer';
 
 type ResetState = 'loading' | 'input' | 'submitting' | 'success' | 'error';
@@ -145,13 +146,12 @@ export default function ResetPasswordPage() {
   return (
     <div
       className="min-h-screen w-full bg-white text-gray-800 font-sans selection:bg-cyan-100 selection:text-cyan-900 flex flex-col"
-      style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+      
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
         .btn-primary {
-          background: linear-gradient(135deg, #32B3C5 0%, #0D8F9A 100%);
+          background: linear-gradient(135deg, #3AAADF 0%, #1761A6 100%);
           color: white;
           font-weight: 600;
           padding: 8px 22px;
@@ -160,7 +160,7 @@ export default function ResetPasswordPage() {
           cursor: pointer;
           font-size: 0.875rem;
           transition: all 0.2s ease;
-          box-shadow: 0 4px 14px rgba(50, 179, 197, 0.3);
+          box-shadow: 0 4px 14px rgba(58, 170, 223, 0.3);
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -169,7 +169,7 @@ export default function ResetPasswordPage() {
         }
         .btn-primary:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(50, 179, 197, 0.4);
+          box-shadow: 0 6px 20px rgba(58, 170, 223, 0.4);
         }
         .btn-primary:disabled {
           opacity: 0.7;
@@ -182,7 +182,7 @@ export default function ResetPasswordPage() {
           text-decoration: none;
           transition: color 0.2s;
         }
-        .nav-link:hover { color: #0A2540; }
+        .nav-link:hover { color: #0B2E4F; }
         .input-field {
           width: 100%;
           padding: 12px 16px;
@@ -193,41 +193,20 @@ export default function ResetPasswordPage() {
           outline: none;
         }
         .input-field:focus {
-          border-color: #32B3C5;
-          box-shadow: 0 0 0 3px rgba(50, 179, 197, 0.15);
+          border-color: #3AAADF;
+          box-shadow: 0 0 0 3px rgba(58, 170, 223, 0.15);
         }
       `}</style>
 
-      {/* ── Navbar ── */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 border-b"
-        style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(12px)', borderColor: '#e5e7eb' }}
-      >
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <a href="?" className="flex items-center gap-2.5" style={{ textDecoration: 'none' }}>
-            <img src="./logo.svg" alt="97plantões logo" className="h-9 w-auto rounded-lg" />
-            <span className="font-extrabold text-xl tracking-tight" style={{ color: '#1C5A90' }}>
-              97<span style={{ color: '#55BCCD' }}>plantões</span>
-            </span>
-          </a>
-
-          <div className="hidden md:flex gap-8 items-center">
-            <a href="?" className="nav-link">Voltar para a Home</a>
-          </div>
-
-          <a href="?#download" className="btn-primary">
-            Baixar o App
-          </a>
-        </div>
-      </nav>
+      <SiteHeader variant="page" />
 
       {/* ── Main Content ── */}
-      <main className="flex-1 flex items-center justify-center pt-24 pb-16 px-4 bg-[#f8fcfd]">
+      <main className="flex-1 flex items-center justify-center pt-24 pb-16 px-4 bg-[#F3F6F9]">
         <div className="w-full max-w-xl">
           {/* Gradient shell */}
           <div
             className="rounded-3xl overflow-hidden shadow-2xl"
-            style={{ background: 'linear-gradient(135deg, #55BCCD 0%, #1C5A90 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #3AAADF 0%, #0B2E4F 100%)' }}
           >
             <div className="p-6 md:p-8">
               {/* Header */}
@@ -240,7 +219,7 @@ export default function ResetPasswordPage() {
                   />
                 </div>
                 <div className="text-white">
-                  <h1 className="text-2xl md:text-3xl font-extrabold leading-tight">
+                  <h1 className="font-display text-2xl md:text-3xl font-extrabold leading-tight">
                     Redefinir Senha
                   </h1>
                 </div>
@@ -255,9 +234,9 @@ export default function ResetPasswordPage() {
                     <div>
                       <div
                         className="w-10 h-10 rounded-full border-4 border-gray-200 animate-spin mb-5"
-                        style={{ borderTopColor: '#32B3C5' }}
+                        style={{ borderTopColor: '#3AAADF' }}
                       />
-                      <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                      <h2 className="font-display text-2xl font-bold text-gray-900 mb-3">
                         Verificando link...
                       </h2>
                       <p className="text-gray-600 leading-relaxed">
@@ -269,7 +248,7 @@ export default function ResetPasswordPage() {
                   {/* Input form state */}
                   {(state === 'input' || state === 'submitting') && (
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                      <h2 className="font-display text-2xl font-bold text-gray-900 mb-2">
                         Criar nova senha
                       </h2>
                       <p className="text-gray-600 mb-6 text-sm">
@@ -353,13 +332,13 @@ export default function ResetPasswordPage() {
                       {/* Success icon */}
                       <div
                         className="w-14 h-14 rounded-full flex items-center justify-center mb-5"
-                        style={{ background: '#EAF8FA' }}
+                        style={{ background: '#EEF4F9' }}
                       >
-                        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="#0D8F9A" strokeWidth={2.5}>
+                        <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="#1761A6" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                      <h2 className="font-display text-2xl font-bold text-gray-900 mb-3">
                         Senha alterada!
                       </h2>
                       <p className="text-gray-600 leading-relaxed mb-6">
@@ -383,7 +362,7 @@ export default function ResetPasswordPage() {
                           <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                       </div>
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                      <h2 className="font-display text-2xl font-bold text-gray-900 mb-4">
                         Link inválido
                       </h2>
                       <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 mb-5">

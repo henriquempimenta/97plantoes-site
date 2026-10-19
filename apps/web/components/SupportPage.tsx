@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import SiteHeader from './site/SiteHeader';
 import Footer from './Footer';
 
 export default function SupportPage() {
@@ -7,12 +8,11 @@ export default function SupportPage() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-white text-gray-800 font-sans selection:bg-cyan-100 selection:text-cyan-900" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+    <div className="min-h-screen w-full bg-white text-gray-800 font-sans selection:bg-cyan-100 selection:text-cyan-900" >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
         .btn-primary {
-          background: linear-gradient(135deg, #32B3C5 0%, #0D8F9A 100%);
+          background: linear-gradient(135deg, #3AAADF 0%, #1761A6 100%);
           color: white;
           font-weight: 600;
           padding: 8px 22px;
@@ -21,7 +21,7 @@ export default function SupportPage() {
           cursor: pointer;
           font-size: 0.875rem;
           transition: all 0.2s ease;
-          box-shadow: 0 4px 14px rgba(50, 179, 197, 0.3);
+          box-shadow: 0 4px 14px rgba(58, 170, 223, 0.3);
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -30,7 +30,7 @@ export default function SupportPage() {
         }
         .btn-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(50, 179, 197, 0.4);
+          box-shadow: 0 6px 20px rgba(58, 170, 223, 0.4);
         }
         .nav-link {
           color: #4b5563;
@@ -39,18 +39,18 @@ export default function SupportPage() {
           text-decoration: none;
           transition: color 0.2s;
         }
-        .nav-link:hover { color: #0A2540; }
+        .nav-link:hover { color: #0B2E4F; }
         
         .content-section h1 {
           font-size: 2.5rem;
           font-weight: 900;
-          color: #0A2540;
+          color: #0B2E4F;
           margin-bottom: 2rem;
         }
         .content-section h2 {
           font-size: 1.5rem;
           font-weight: 800;
-          color: #1C5A90;
+          color: #1761A6;
           margin-top: 2.5rem;
           margin-bottom: 1rem;
         }
@@ -62,19 +62,19 @@ export default function SupportPage() {
         }
         .info-card {
           background-color: #f0fdfa;
-          border-left: 4px solid #32B3C5;
+          border-left: 4px solid #3AAADF;
           padding: 1.5rem;
           border-radius: 0.5rem;
           margin-top: 2rem;
         }
         .contact-link {
-          color: #0D8F9A;
+          color: #1761A6;
           font-weight: 600;
           text-decoration: none;
           transition: color 0.2s;
         }
         .contact-link:hover {
-          color: #1C5A90;
+          color: #1761A6;
           text-decoration: underline;
         }
         .whatsapp-btn {
@@ -100,33 +100,9 @@ export default function SupportPage() {
         }
       `}</style>
 
-      {/* ── Navbar ── */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 border-b"
-        style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(12px)', borderColor: '#e5e7eb' }}
-      >
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Logo */}
-          <a href="?" className="flex items-center gap-2.5" style={{ textDecoration: 'none' }}>
-            <img src="./logo.svg" alt="97plantões logo" className="h-9 w-auto rounded-lg" />
-            <span className="font-extrabold text-xl tracking-tight" style={{ color: '#1C5A90' }}>
-              97<span style={{ color: '#55BCCD' }}>plantões</span>
-            </span>
-          </a>
+      <SiteHeader variant="page" />
 
-          {/* Links */}
-          <div className="hidden md:flex gap-8 items-center">
-            <a href="?" className="nav-link">Voltar para a Home</a>
-          </div>
-
-          {/* CTA */}
-          <a href="?#download" className="btn-primary">
-            Baixar o App
-          </a>
-        </div>
-      </nav>
-
-      <main className="pt-32 pb-24 px-4 bg-[#f8fcfd] min-h-screen">
+      <main className="pt-32 pb-24 px-4 bg-[#F3F6F9] min-h-screen">
         <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 content-section">
           <h1>Suporte 97plantões</h1>
 

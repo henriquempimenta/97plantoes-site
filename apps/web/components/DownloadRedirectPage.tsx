@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
+import SiteHeader from './site/SiteHeader';
 
 const APP_STORE_URL = 'https://apps.apple.com/br/app/97plant%C3%B5es/id6760927669';
 const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.sante.n97plantoes';
@@ -32,10 +33,9 @@ export default function DownloadRedirectPage() {
   return (
     <div className="min-h-screen w-full bg-white text-gray-800 font-sans selection:bg-cyan-100 selection:text-cyan-900">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
         .btn-primary {
-          background: linear-gradient(135deg, #32B3C5 0%, #0D8F9A 100%);
+          background: linear-gradient(135deg, #3AAADF 0%, #1761A6 100%);
           color: white;
           font-weight: 600;
           padding: 8px 22px;
@@ -44,7 +44,7 @@ export default function DownloadRedirectPage() {
           cursor: pointer;
           font-size: 0.875rem;
           transition: all 0.2s ease;
-          box-shadow: 0 4px 14px rgba(50, 179, 197, 0.3);
+          box-shadow: 0 4px 14px rgba(58, 170, 223, 0.3);
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -53,7 +53,7 @@ export default function DownloadRedirectPage() {
         }
         .btn-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(50, 179, 197, 0.4);
+          box-shadow: 0 6px 20px rgba(58, 170, 223, 0.4);
         }
         .nav-link {
           color: #4b5563;
@@ -62,45 +62,25 @@ export default function DownloadRedirectPage() {
           text-decoration: none;
           transition: color 0.2s;
         }
-        .nav-link:hover { color: #0A2540; }
+        .nav-link:hover { color: #0B2E4F; }
       `}</style>
 
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 border-b"
-        style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(12px)', borderColor: '#e5e7eb' }}
-      >
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2.5" style={{ textDecoration: 'none' }}>
-            <img src="/logo.svg" alt="97plantões logo" className="h-9 w-auto rounded-lg" />
-            <span className="font-extrabold text-xl tracking-tight" style={{ color: '#1C5A90' }}>
-              97<span style={{ color: '#55BCCD' }}>plantões</span>
-            </span>
-          </a>
-
-          <div className="hidden md:flex gap-8 items-center">
-            <a href="/" className="nav-link">Voltar para a Home</a>
-          </div>
-
-          <a href={storeUrl ?? GOOGLE_PLAY_URL} className="btn-primary">
-            Baixar o App
-          </a>
-        </div>
-      </nav>
+      <SiteHeader variant="page" />
 
       <main
         className="min-h-screen pt-32 pb-16 px-4 flex flex-col justify-center items-center relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #1C5A90 0%, #32B3C5 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #0B2E4F 0%, #3AAADF 100%)' }}
       >
         <div className="absolute inset-0 pointer-events-none opacity-40">
-          <div className="absolute right-[-120px] top-[-120px] w-[420px] h-[420px] rounded-full bg-[#EBF7F9] mix-blend-soft-light blur-3xl" />
-          <div className="absolute left-[-140px] bottom-[-160px] w-[520px] h-[520px] rounded-full bg-[#0A2540] mix-blend-multiply blur-3xl" />
+          <div className="absolute right-[-120px] top-[-120px] w-[420px] h-[420px] rounded-full bg-[#EEF4F9] mix-blend-soft-light blur-3xl" />
+          <div className="absolute left-[-140px] bottom-[-160px] w-[520px] h-[520px] rounded-full bg-[#0B2E4F] mix-blend-multiply blur-3xl" />
         </div>
 
         <section className="max-w-3xl w-full text-center mb-10 relative z-10">
           <div className="inline-block bg-white/20 text-white rounded-full px-5 py-2 text-sm font-semibold mb-6 shadow-sm backdrop-blur-sm border border-white/20">
             Disponível na App Store & Google Play
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight drop-shadow-sm">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight drop-shadow-sm">
             Baixe o 97plantões
           </h1>
           <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
@@ -133,7 +113,7 @@ export default function DownloadRedirectPage() {
               </div>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
               Baixe o App Agora
             </h2>
 
